@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.example.mad_app085_p9.databinding.ActivitySplashBinding
@@ -16,13 +15,13 @@ class SplashActivity : AppCompatActivity(), Animation.AnimationListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
 
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.imgLogo.setBackgroundResource(R.drawable.uvpce_image_list)
         guni_framebyframeanimation=binding.imgLogo.background as AnimationDrawable
+        guni_framebyframeanimation.isOneShot = true
         twinanimation= AnimationUtils.loadAnimation(this,R.anim.grow)
         twinanimation.setAnimationListener(this)
     }
@@ -30,7 +29,7 @@ class SplashActivity : AppCompatActivity(), Animation.AnimationListener {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if(hasFocus){
-           guni_framebyframeanimation.start()
+            guni_framebyframeanimation.start()
             binding.imgLogo.startAnimation(twinanimation)
         }
         else
@@ -45,9 +44,8 @@ class SplashActivity : AppCompatActivity(), Animation.AnimationListener {
 
     override fun onAnimationEnd(p0: Animation?) {
         Intent(this,MainActivity::class.java).also { startActivity(it)}
-        overridePendingTransition(R.anim.scale_center_out,R.anim.scale_center_in)
+        overridePendingTransition(R.anim.scale_center_in,R.anim.scale_center_out)
         finish()
-
     }
 
     override fun onAnimationRepeat(p0: Animation?) {

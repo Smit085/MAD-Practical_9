@@ -55,9 +55,8 @@
                     <ImageView
                         android:id="@+id/img_alarm"
                         android:layout_width="wrap_content"
-                        android:layout_height="180dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_alarm" />
+                        android:layout_height="280dp"
+                        android:scaleType="fitXY" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -82,14 +81,15 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txt_alarmtitle3"
                         android:textColor="?android:textColorPrimary"
-                        android:padding="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
                         android:textSize="14sp"/>
 
                     <ImageView
                         android:id="@+id/img_heart"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:layout_marginTop="2dp"
                         android:layout_marginEnd="25dp"
                         android:layout_gravity="end" />
 

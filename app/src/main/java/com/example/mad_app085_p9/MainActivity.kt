@@ -4,18 +4,15 @@ import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mad_app085_p9.databinding.ActivityMainBinding
-import com.example.mad_app085_p9.databinding.ActivitySplashBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var alarmimages_frameByFrameAnimation : AnimationDrawable
     lateinit var heart_frameByFrameAnimation : AnimationDrawable
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.imgAlarm.setBackgroundResource(R.drawable.alarm_image_list)
 
@@ -30,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
         if(hasFocus){
             alarmimages_frameByFrameAnimation.start()
-
             heart_frameByFrameAnimation.start()
         }
     }
